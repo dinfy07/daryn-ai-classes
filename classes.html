@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daryn AI — сыныптар мен оқушыларды басқару.">
+  <title>Менің сыныптарым — Daryn AI</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Негізгі мазмұнға өту</a>
+  <div class="class-shell">
+    <main class="app-main class-main" id="main">
+      <header class="classes-page-head">
+        <div><p class="eyebrow">Оқу кеңістігі</p><h1>Менің сыныптарым</h1><p>Сыныптарды басқарыңыз және оқушылар тізімін бақылаңыз.</p></div>
+        <a class="btn btn-primary" href="class-create.html"><span class="icon" aria-hidden="true">＋</span>Сынып құру</a>
+      </header>
+
+      <section class="card class-stats" aria-label="Сыныптар статистикасы">
+        <div class="class-stat"><span class="icon-box" aria-hidden="true">▱</span><div><strong>6</strong><span>Барлық сыныптар</span></div></div>
+        <div class="class-stat"><span class="icon-box" aria-hidden="true" style="color:var(--success);background:var(--success-soft)">♟</span><div><strong>142</strong><span>Барлық оқушылар</span></div></div>
+        <div class="class-stat"><span class="icon-box" aria-hidden="true" style="color:#c77800;background:var(--warning-soft)">▤</span><div><strong>3</strong><span>Пән саны</span></div></div>
+        <div class="class-stat-badges"><span class="tag tag-blue">● 5–9 сынып</span><span class="tag tag-green">★ Белсенді мұғалім</span></div>
+      </section>
+
+      <section aria-labelledby="classes-title">
+        <h2 class="sr-only" id="classes-title">Сыныптар тізімі</h2>
+        <input class="view-mode-input" type="radio" name="class-view" id="class-view-grid" checked>
+        <input class="view-mode-input" type="radio" name="class-view" id="class-view-list">
+        <div class="class-toolbar">
+          <label class="search-wrap"><span class="icon" aria-hidden="true">⌕</span><span class="sr-only">Сыныпты іздеу</span><input class="control" type="search" data-class-search placeholder="Сыныпты іздеу…"></label>
+          <label class="select-shell"><span class="sr-only">Сынып бойынша сүзгі</span><select class="select-control" data-grade-filter><option>Барлық сыныптар</option><option>5 сынып</option><option>6 сынып</option><option>7 сынып</option><option>8 сынып</option><option>9 сынып</option></select></label>
+          <label class="select-shell"><span class="sr-only">Пән бойынша сүзгі</span><select class="select-control" data-subject-filter><option>Барлық пәндер</option><option>Математика</option><option>Алгебра</option><option>Геометрия</option><option>Биология</option><option>Қазақстан тарихы</option></select></label>
+          <div class="view-toggle" aria-label="Көрініс түрі"><label class="tool-btn" for="class-view-grid"><span aria-hidden="true">⁙</span><span class="sr-only">Карточкалар</span></label><label class="tool-btn" for="class-view-list"><span aria-hidden="true">☷</span><span class="sr-only">Тізім</span></label></div>
+        </div>
+
+        <div class="classes-grid">
+          <article class="card class-card" data-class-id="5a">
+            <div class="class-card-head"><span class="class-mark">5А</span><div><h2>5А сынып</h2><p class="class-subject">Математика</p></div><span class="tag tag-blue">▣ 5-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>24</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.8</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар: Айару, Дамир, Бағжан, Жансая, Мақсат және тағы 19"><span class="student-avatar">АС</span><span class="student-avatar purple">ДМ</span><span class="student-avatar green">БА</span><span class="student-avatar orange">ЖТ</span><span class="student-avatar rose">МК</span><span class="student-avatar slate">+19</span></div><a class="text-link" href="class-edit.html?class=5a#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=5a">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+
+          <article class="card class-card" data-class-id="6b">
+            <div class="class-card-head"><span class="class-mark purple">6Б</span><div><h2>6Б сынып</h2><p class="class-subject">Алгебра</p></div><span class="tag tag-purple">▣ 6-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>28</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.5</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар және тағы 23"><span class="student-avatar purple">НА</span><span class="student-avatar">КМ</span><span class="student-avatar rose">АТ</span><span class="student-avatar green">СО</span><span class="student-avatar orange">РД</span><span class="student-avatar slate">+23</span></div><a class="text-link" href="class-edit.html?class=6b#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=6b">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+
+          <article class="card class-card" data-class-id="7v">
+            <div class="class-card-head"><span class="class-mark green">7В</span><div><h2>7В сынып</h2><p class="class-subject">Геометрия</p></div><span class="tag tag-green">▣ 7-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>22</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.2</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар және тағы 17"><span class="student-avatar green">АБ</span><span class="student-avatar">СН</span><span class="student-avatar orange">ДА</span><span class="student-avatar purple">КТ</span><span class="student-avatar rose">МЖ</span><span class="student-avatar slate">+17</span></div><a class="text-link" href="class-edit.html?class=7v#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=7v">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+
+          <article class="card class-card" data-class-id="8a">
+            <div class="class-card-head"><span class="class-mark orange">8А</span><div><h2>8А сынып</h2><p class="class-subject">Биология</p></div><span class="tag tag-orange">▣ 8-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>26</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.6</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар және тағы 21"><span class="student-avatar orange">АК</span><span class="student-avatar green">ЕА</span><span class="student-avatar">ЖН</span><span class="student-avatar purple">ҚМ</span><span class="student-avatar rose">ТА</span><span class="student-avatar slate">+21</span></div><a class="text-link" href="class-edit.html?class=8a#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=8a">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+
+          <article class="card class-card" data-class-id="9b">
+            <div class="class-card-head"><span class="class-mark rose">9Б</span><div><h2>9Б сынып</h2><p class="class-subject">Қазақстан тарихы</p></div><span class="tag tag-red">▣ 9-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>21</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.4</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар және тағы 16"><span class="student-avatar rose">АЖ</span><span class="student-avatar">ДС</span><span class="student-avatar green">НТ</span><span class="student-avatar purple">СА</span><span class="student-avatar orange">ҚЕ</span><span class="student-avatar slate">+16</span></div><a class="text-link" href="class-edit.html?class=9b#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=9b">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+
+          <article class="card class-card" data-class-id="5v">
+            <div class="class-card-head"><span class="class-mark indigo">5В</span><div><h2>5В сынып</h2><p class="class-subject">Математика</p></div><span class="tag tag-blue">▣ 5-сынып</span></div>
+            <div class="class-metrics"><div class="class-metric"><strong>21</strong><span>Оқушы</span></div><div class="class-metric"><strong>4.7</strong><span>Орташа баға</span></div></div>
+            <div class="class-students-preview"><div class="avatar-stack" aria-label="Оқушылар және тағы 16"><span class="student-avatar purple">МН</span><span class="student-avatar orange">РА</span><span class="student-avatar">АЕ</span><span class="student-avatar rose">СК</span><span class="student-avatar green">БТ</span><span class="student-avatar slate">+16</span></div><a class="text-link" href="class-edit.html?class=5v#students">◉ Тізім</a></div>
+            <div class="class-card-actions"><a class="btn btn-secondary btn-sm" href="class-edit.html?class=5v">✎ Өңдеу</a><button class="btn btn-secondary btn-sm muted" type="button" data-action="delete-class">▧ Жою</button></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
