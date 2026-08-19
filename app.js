@@ -96,7 +96,7 @@
   const studentFromRow = (row) => ({
     name: row.querySelector(".student-person strong")?.textContent.trim() || "",
     id: row.querySelector(".student-person div span")?.textContent.replace(/^.*?:\s*/, "").trim() || "",
-    email: row.querySelector(".student-contact")?.textContent.trim() || "",
+    contact: row.querySelector(".student-contact")?.textContent.trim() || "",
     status: row.querySelector(".tag")?.textContent.trim() || "Қосылды"
   });
 
@@ -110,7 +110,7 @@
         <span class="student-avatar ${avatarClass}">${escapeHtml(initials(student.name))}</span>
         <div><strong>${escapeHtml(student.name)}</strong><span>Оқушы ID: ${escapeHtml(student.id)}</span></div>
       </div>
-      <span class="student-contact">${escapeHtml(student.email)}</span>
+      <span class="student-contact">${escapeHtml(student.contact ?? "")}</span>
       <div class="student-actions">
         <button class="tool-btn" type="button" data-action="edit-student" aria-label="${escapeHtml(student.name)} — өңдеу">✎</button>
         <button class="tool-btn" type="button" data-action="delete-student" aria-label="${escapeHtml(student.name)} — жою">×</button>
@@ -152,7 +152,7 @@
         </div>
         <div class="student-dialog-fields">
           <div class="field"><label for="student-name">Аты-жөні <span class="required">*</span></label><input class="control" id="student-name" name="student-name" autocomplete="name" placeholder="мысалы: Аружан Қасым" required></div>
-          <div class="field"><label for="student-email">Email <span class="required">*</span></label><input class="control" id="student-email" name="student-email" type="email" autocomplete="email" placeholder="student@school.kz" required></div>
+          <div class="field"><label for="student-contact">Байланыс нөмірі <span class="optional">(міндетті емес)</span></label><input class="control" id="student-contact" name="student-contact" type="tel" inputmode="tel" autocomplete="tel" placeholder="мысалы: +7 700 123 45 67"></div>
         </div>
         <div class="student-dialog-actions"><button class="btn btn-secondary" type="button" data-dialog-close>Бас тарту</button><button class="btn btn-primary" type="submit">Сақтау</button></div>
       </form>`;
@@ -160,7 +160,7 @@
 
     const dialogForm = dialog.querySelector("form");
     const nameInput = dialog.querySelector("#student-name");
-    const emailInput = dialog.querySelector("#student-email");
+    const contactInput = dialog.querySelector("#student-contact");
     const title = dialog.querySelector("[data-dialog-title]");
 
     const openDialog = (row = null) => {
@@ -169,7 +169,7 @@
       if (row) {
         const student = studentFromRow(row);
         nameInput.value = student.name;
-        emailInput.value = student.email;
+        contactInput.value = student.contact;
       } else {
         dialogForm.reset();
       }
@@ -190,7 +190,7 @@
       const previous = editingRow ? studentFromRow(editingRow) : null;
       const student = {
         name: nameInput.value.trim(),
-        email: emailInput.value.trim(),
+        contact: contactInput.value.trim(),
         id: previous?.id || nextStudentId(),
         status: previous?.status || (mode === "edit" ? "Белсенді" : "Қосылды")
       };
@@ -245,10 +245,10 @@
       const lines = (await file.text()).split(/\r?\n/).filter((line) => line.trim());
       let added = 0;
       lines.forEach((line, index) => {
-        const [rawName = "", rawEmail = ""] = line.split(/[;,\t]/).map((part) => part.trim().replace(/^"|"$/g, ""));
-        if (index === 0 && /аты|name/i.test(rawName) && /email/i.test(rawEmail)) return;
-        if (!rawName || !rawEmail.includes("@")) return;
-        list.append(buildStudentRow({ name: rawName, email: rawEmail, id: nextStudentId(), status: mode === "edit" ? "Белсенді" : "Қосылды" }, list.children.length));
+        const [rawName = "", rawContact = ""] = line.split(/[;,\t]/).map((part) => part.trim().replace(/^"|"$/g, ""));
+        if (index === 0 && /аты|name/i.test(rawName) && /байланыс|нөмір|телефон|phone|contact|email/i.test(rawContact)) return;
+        if (!rawName) return;
+        list.append(buildStudentRow({ name: rawName, contact: rawContact, id: nextStudentId(), status: mode === "edit" ? "Белсенді" : "Қосылды" }, list.children.length));
         added += 1;
       });
       fileInput.value = "";
